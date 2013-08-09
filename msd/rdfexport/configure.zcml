@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    
+    i18n_domain="msd.rdfexport">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <include zcml:condition="installed Products.RDSLocal" file="researcher.zcml" />
+    
+   <!-- register the Generic Setup extension profile -->
+	<genericsetup:registerProfile
+      name="default"
+      title="MSD RDF Export"
+      directory="profiles/default"
+      description="Extension profile for msd.rdfexport"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+	
+	
+    <!-- TODO: This should be moved inside the RDSLocal
+     adapter for="Products.RDSLocal.content.Person.Person"
+         provides=".interfaces.IHarvestable"
+         factory=".adapters.BaseHarvestableResearcher" /-->
+         
+</configure>

@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="msd.rdfexport">
+
+
+    <browser:page
+     name="RDF"
+     for="Products.RDSLocal.interfaces.IResearcher"
+     class=".researcherprofile.ResearcherProfileDocument"
+     permission="zope2.View"
+     layer=".interfaces.IRDFExport"
+     allowed_attributes=""
+     />
+
+  <browser:page
+     name="allResearchers.rdf"
+     for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
+     class=".researcherprofile.AllResearchersProfilesDocument"
+     permission="zope2.View"
+     layer=".interfaces.IRDFExport"
+     allowed_attributes=""
+     />
+
+</configure>
